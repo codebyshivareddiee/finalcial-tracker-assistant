@@ -1,10 +1,9 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { expenseService } from "./services/expense-service";
 import { summaryService } from "./services/summary-service";
 import { chatbotService } from "./services/chatbot-service";
 
-export async function registerRoutes(app: Express): Promise<Server> {
+export async function registerRoutes(app: Express): Promise<void> {
   // API Routes
   
   // Get all expenses with optional filtering
@@ -86,6 +85,4 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  const httpServer = createServer(app);
-  return httpServer;
 }
